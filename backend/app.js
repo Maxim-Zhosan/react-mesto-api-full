@@ -29,16 +29,16 @@ const corsOptions = {
 app.use(cors(corsOptions));
 // app.options('*', cors(corsOptions));
 
-app.use((req, res, next) => {
-  const { origin } = req.headers; // Сохраняем источник запроса в переменную origin
-  // проверяем, что источник запроса есть среди разрешённых
-  if (allowedCors.includes(origin)) {
-    console.log(origin);
-    console.log(req.headers);
-    res.header('Access-Control-Allow-Origin', origin);
-  }
-  next();
-});
+// app.use((req, res, next) => {
+//   const { origin } = req.headers; // Сохраняем источник запроса в переменную origin
+//   // проверяем, что источник запроса есть среди разрешённых
+//   if (allowedCors.includes(origin)) {
+//     console.log(origin);
+//     console.log(req.headers);
+//     res.header('Access-Control-Allow-Origin', origin);
+//   }
+//   next();
+// });
 
 app.use('/', require('./routes/index'));
 
