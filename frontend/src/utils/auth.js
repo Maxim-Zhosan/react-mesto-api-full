@@ -21,10 +21,10 @@ import { URL } from './constants';
     export function checkToken() {
         return fetch(`${URL}/users/me`, {
             method: 'GET',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
             },
-            credentials: 'include',
         })
             .then(res => getJsonOrError(res))
     }
@@ -32,6 +32,7 @@ import { URL } from './constants';
     export function authUser(data) {
         return fetch(`${URL}/signin`, {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -46,6 +47,7 @@ import { URL } from './constants';
     export function registerNewUser(data) {
         return fetch(`${URL}/signup`, {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json'
             },
