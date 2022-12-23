@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const { errHandler } = require('./middlewares/err-handler');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const { corsHandler } = require('./middlewares/cors');
 
 const { PORT = 3000 } = process.env;
 const app = express();
@@ -14,6 +15,7 @@ app.use(requestLogger); // подключаем логгер запросов
 mongoose.connect('mongodb://localhost:27017/mestodb');
 app.use('/', require('./routes/index'));
 
+app.use(corsHandler);
 app.use(errorLogger); // подключаем логгер ошибок
 app.use(errors()); // обработчик ошибок celebrate
 app.use((err, req, res, next) => errHandler(err, req, res, next));
