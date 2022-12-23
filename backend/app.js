@@ -21,9 +21,9 @@ const allowedCors = [
 
 const corsOptions = {
   origin: allowedCors,
-  optionsSuccessStatus: 200,
-  credentials: true,
-  header: 'Access-Control-Allow-Origin',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
 };
 
 app.use(cors(corsOptions));
