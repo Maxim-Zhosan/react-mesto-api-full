@@ -26,6 +26,16 @@ const corsOptions = {
   credentials: true,
 };
 
+app.use('/', cors(corsOptions), require('./routes/index'));
+
+app.use(errorLogger); // подключаем логгер ошибок
+app.use(errors()); // обработчик ошибок celebrate
+app.use((err, req, res, next) => errHandler(err, req, res, next));
+
+app.listen(PORT, () => {
+  console.log('Всё ок');
+});
+
 // // app.use(cors(corsOptions));
 // app.options('*', cors(corsOptions));
 
@@ -39,13 +49,3 @@ const corsOptions = {
 //   }
 //   next();
 // });
-
-app.use('/', cors(corsOptions), require('./routes/index'));
-
-app.use(errorLogger); // подключаем логгер ошибок
-app.use(errors()); // обработчик ошибок celebrate
-app.use((err, req, res, next) => errHandler(err, req, res, next));
-
-app.listen(PORT, () => {
-  console.log('Всё ок');
-});
