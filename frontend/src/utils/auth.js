@@ -1,4 +1,4 @@
-const URL = 'https://auth.nomoreparties.co';
+import { URL } from './constants';
 
     function getJsonOrError(res) {
         if (res.ok) {
@@ -7,13 +7,24 @@ const URL = 'https://auth.nomoreparties.co';
         return Promise.reject(`Ошибка: ${res.status}`)
     }
 
-    export function checkToken(token) {
+    // export function checkToken(token) {
+    //     return fetch(`${URL}/users/me`, {
+    //         method: 'GET',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Authorization': `Bearer ${token}`
+    //         }
+    //     })
+    //         .then(res => getJsonOrError(res))
+    // }
+
+    export function checkToken() {
         return fetch(`${URL}/users/me`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            }
+            },
+            credentials: 'include',
         })
             .then(res => getJsonOrError(res))
     }
