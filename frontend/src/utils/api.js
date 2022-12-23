@@ -23,6 +23,7 @@ class Api {
 
     getInitialCards() {
         return fetch(`${this._host}/cards`, {
+            method: 'OPTIONS',
             credentials: 'include',
         })
             .then(res => this._getJsonOrError(res))
@@ -97,6 +98,7 @@ class Api {
     
     getUserInformation() {
         return fetch(`${this._host}/users/me`, {
+            method: 'OPTIONS',
             credentials: 'include',
         })
             .then(res => this._getJsonOrError(res))
