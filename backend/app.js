@@ -15,7 +15,7 @@ app.use(requestLogger); // подключаем логгер запросов
 mongoose.connect('mongodb://localhost:27017/mestodb');
 app.use('/', require('./routes/index'));
 
-app.use(corsHandler);
+app.use(corsHandler());
 app.use(errorLogger); // подключаем логгер ошибок
 app.use(errors()); // обработчик ошибок celebrate
 app.use((err, req, res, next) => errHandler(err, req, res, next));
