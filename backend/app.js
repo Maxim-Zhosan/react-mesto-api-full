@@ -13,14 +13,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(requestLogger); // подключаем логгер запросов
 mongoose.connect('mongodb://localhost:27017/mestodb');
 
-const allowedCors = [
-  'http://mesto-mz.nomoredomains.club',
-  'https://mesto-mz.nomoredomains.club',
-  'localhost:3000',
-];
+// const allowedCors = [
+//   'http://mesto-mz.nomoredomains.club',
+//   'https://mesto-mz.nomoredomains.club',
+//   'localhost:3000',
+// ];
 
 const corsOptions = {
-  origin: allowedCors,
+  origin: 'https://mesto-mz.nomoredomains.club',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   preflightContinue: false,
   optionsSuccessStatus: 204,
