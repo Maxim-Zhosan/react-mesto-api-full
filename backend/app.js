@@ -11,11 +11,11 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(requestLogger); // подключаем логгер запросов
+app.use(corsHandler());
 
 mongoose.connect('mongodb://localhost:27017/mestodb');
 app.use('/', require('./routes/index'));
 
-app.use(corsHandler());
 app.use(errorLogger); // подключаем логгер ошибок
 app.use(errors()); // обработчик ошибок celebrate
 app.use((err, req, res, next) => errHandler(err, req, res, next));
