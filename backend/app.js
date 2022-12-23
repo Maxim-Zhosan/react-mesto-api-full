@@ -13,11 +13,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(requestLogger); // подключаем логгер запросов
 mongoose.connect('mongodb://localhost:27017/mestodb');
 
-const corsOptions = {
-  origin: ['http://mesto-mz.nomoredomains.club', 'http://mesto-mz.nomoredomains.club', 'localhost:3000'],
-};
-
-app.use('/', cors(corsOptions), require('./routes/index'));
+// const corsOptions = {
+//   origin: ['http://mesto-mz.nomoredomains.club', 'https://mesto-mz.nomoredomains.club', 'localhost:3000'],
+// };
+app.use(cors())
+app.use('/', require('./routes/index'));
 
 app.use(errorLogger); // подключаем логгер ошибок
 app.use(errors()); // обработчик ошибок celebrate
