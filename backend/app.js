@@ -29,6 +29,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.options('*', cors());
 
 // app.use((req, res, next) => {
 //   const { origin } = req.headers; // Сохраняем источник запроса в переменную origin
