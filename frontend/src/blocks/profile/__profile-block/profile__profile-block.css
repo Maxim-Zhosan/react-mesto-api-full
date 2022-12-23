@@ -1,0 +1,7 @@
+.profile__profile-block {
+    box-sizing    : border-box;
+    display              : grid;
+    grid-auto-flow       : row;
+    grid-template-rows   : min-content;
+    grid-template-columns: max-content max-content;
+}

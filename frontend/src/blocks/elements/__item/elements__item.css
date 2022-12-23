@@ -1,0 +1,14 @@
+.elements__item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 361px;
+    margin     : 0;
+    line-height: 0;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden;
+    align-items: center;
+    position: relative;
+  }
+  

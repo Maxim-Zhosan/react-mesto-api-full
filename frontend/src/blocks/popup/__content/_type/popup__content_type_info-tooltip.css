@@ -1,0 +1,13 @@
+.popup__content_type_info-tooltip {
+    justify-content: center;
+    align-items: center;
+    padding: 60px 36px;
+    text-align: center;
+}
+
+@media (max-width: 591px) {
+    .popup__content_type_info-tooltip {
+        min-width  : 260px;
+        padding: 50px 18px;
+    }
+}

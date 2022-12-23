@@ -1,0 +1,15 @@
+.popup__error {
+    margin: 5px 0 5px 0;
+    min-height: 30px;
+}
+
+.popup__error:last-of-type {
+    margin-bottom: 13px;
+}
+
+@media (max-width: 591px) {
+
+    .popup__error:last-of-type {
+        margin-bottom: 10px;
+    }
+  }

@@ -1,0 +1,13 @@
+.signup {
+    box-sizing: border-box;
+    min-width               : 358px;
+    padding   : 60px calc((100% - 358px)/2) 0;
+    justify-content: center;
+}
+
+@media (max-width: 591px) {
+    .signup {
+        min-width  : 260px;
+        padding: 40px calc((100% - 260px)/2) 0;
+    }
+}

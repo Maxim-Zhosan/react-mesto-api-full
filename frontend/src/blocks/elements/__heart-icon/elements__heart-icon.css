@@ -1,0 +1,13 @@
+.elements__heart-icon {
+    width       : 22px;
+    height      : 19px;
+    transition  : ease-in 0.2s;
+    cursor      : pointer;
+    background  : url('../../../images/heart-empty.svg');
+    border-style: none;
+    padding: 0;
+}
+
+.elements__heart-icon:hover {
+    opacity: 0.5;
+}

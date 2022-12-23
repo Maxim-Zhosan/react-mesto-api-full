@@ -1,0 +1,28 @@
+.header {
+  max-width          : 100%;
+  display        : flex;
+  padding        : 45px calc((100% - 880px)/2) 41px;
+  box-sizing     : border-box;
+  justify-content: space-between;
+  align-items    : center;
+  position: relative;
+}
+
+.header:after {
+  position: absolute;
+  bottom: 0;
+  content: '';
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  width: calc(100% - calc(100% - 880px));
+}
+
+@media (max-width: 933px) {
+  .header {
+    padding: 28px 27px 31.6px;
+  }
+
+  .header:after {
+    left: 0;
+    width: 100%;
+  }
+}

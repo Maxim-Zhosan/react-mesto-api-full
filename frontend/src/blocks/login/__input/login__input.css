@@ -1,0 +1,26 @@
+.login__input {
+    font-weight     : 500;
+    font-size       : 14px;
+    line-height     : 17px;
+    position        : relative;
+    width           : 100%;
+    margin          : 0;
+    border          : none;
+    color         : #FFFFFF;
+    border-bottom   : 2px solid #CCCCCC;
+    padding         : 0 0 13px;
+    box-sizing      : border-box;
+    background-color: #000;
+}
+
+.login__input:last-of-type {
+    padding-top: 40px;
+}
+
+.login__input::placeholder {
+    outline       : 0;
+    outline-offset: 0;
+    color         : #CCCCCC;
+    font-weight     : 400;
+}
+

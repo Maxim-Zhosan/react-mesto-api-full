@@ -1,0 +1,10 @@
+.signup__text {
+    font-weight: 400;
+    font-size  : 14px;
+    line-height: 17px;
+    color      : #FFFFFF;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    text-decoration-line: none;
+}

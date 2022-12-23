@@ -1,0 +1,18 @@
+.signup__login-link {
+    font-weight: 400;
+    font-size  : 14px;
+    line-height: 17px;
+    color      : #FFFFFF;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    text-decoration-line: none;
+}
+
+.signup__login-link:hover {
+    opacity: 0.6;
+}
+
+
+
+
