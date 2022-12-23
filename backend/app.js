@@ -19,25 +19,25 @@ const allowedCors = [
   'localhost:3000',
 ];
 
-const corsOptions = {
-  origin: allowedCors,
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  preflightContinue: false,
-  optionsSuccessStatus: 204,
-  credentials: true,
-  allowedHeaders: 'Content-Type, Authorization',
-};
+// const corsOptions = {
+//   origin: allowedCors,
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//   preflightContinue: false,
+//   optionsSuccessStatus: 204,
+//   credentials: true,
+//   allowedHeaders: 'Content-Type, Authorization',
+// };
 
-app.options('*', cors(corsOptions));
+// app.options('*', cors(corsOptions));
 
-// app.use((req, res, next) => {
-//   const { origin } = req.headers; // Сохраняем источник запроса в переменную origin
-//   // проверяем, что источник запроса есть среди разрешённых
-//   if (allowedCors.includes(origin)) {
-//     res.header('Access-Control-Allow-Origin', origin);
-//   }
-//   next();
-// });
+app.use((req, res, next) => {
+  const { origin } = req.headers; // Сохраняем источник запроса в переменную origin
+  // проверяем, что источник запроса есть среди разрешённых
+  if (allowedCors.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin).status(204);
+  }
+  next();
+});
 
 app.use('/', require('./routes/index'));
 
