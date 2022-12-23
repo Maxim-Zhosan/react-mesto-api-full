@@ -1,9 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const { errors } = require('celebrate');
 const { errHandler } = require('./middlewares/err-handler');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const { corsHandler } = require('./middlewares/cors');
 
 const { PORT = 3000 } = process.env;
 const app = express();
@@ -11,10 +11,14 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(requestLogger); // подключаем логгер запросов
-app.use(corsHandler());
-
 mongoose.connect('mongodb://localhost:27017/mestodb');
-app.use('/', corsHandler, require('./routes/index'));
+
+const corsOptions = {
+  origin: ['http://mesto-mz.nomoredomains.club', 'http://mesto-mz.nomoredomains.club', 'localhost:3000'],
+};
+app.use(cors(corsOptions));
+
+app.use('/', require('./routes/index'));
 
 app.use(errorLogger); // подключаем логгер ошибок
 app.use(errors()); // обработчик ошибок celebrate
