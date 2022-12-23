@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const { errors } = require('celebrate');
 const { errHandler } = require('./middlewares/err-handler');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -18,14 +19,22 @@ const allowedCors = [
   'localhost:3000',
 ];
 
-app.use((req, res, next) => {
-  const { origin } = req.headers; // Сохраняем источник запроса в переменную origin
-  // проверяем, что источник запроса есть среди разрешённых
-  if (allowedCors.includes(origin)) {
-    res.header('Access-Control-Allow-Origin', origin);
-  }
-  next();
-});
+const corsOptions = {
+  origin: allowedCors,
+  optionsSuccessStatus: 200,
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+
+// app.use((req, res, next) => {
+//   const { origin } = req.headers; // Сохраняем источник запроса в переменную origin
+//   // проверяем, что источник запроса есть среди разрешённых
+//   if (allowedCors.includes(origin)) {
+//     res.header('Access-Control-Allow-Origin', origin);
+//   }
+//   next();
+// });
 
 app.use('/', require('./routes/index'));
 
