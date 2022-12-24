@@ -47,7 +47,6 @@ import { URL } from './constants';
     export function registerNewUser(data) {
         return fetch(`${URL}/signup`, {
             method: 'POST',
-            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json'
             },
