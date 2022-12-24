@@ -27,7 +27,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.use('/', cors(corsOptions), require('./routes/index'));
+app.use('/', require('./routes/index'));
 
 app.use(errorLogger); // подключаем логгер ошибок
 app.use(errors()); // обработчик ошибок celebrate
