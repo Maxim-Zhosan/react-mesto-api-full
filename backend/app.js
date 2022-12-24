@@ -13,19 +13,26 @@ app.use(express.urlencoded({ extended: true }));
 app.use(requestLogger); // подключаем логгер запросов
 mongoose.connect('mongodb://localhost:27017/mestodb');
 
-const allowedCors = [
-  'http://mesto-mz.nomoredomains.club',
-  'https://mesto-mz.nomoredomains.club',
-  'localhost:3000',
-];
+// const allowedCors = [
+//   'http://mesto-mz.nomoredomains.club',
+//   'https://mesto-mz.nomoredomains.club',
+//   'localhost:3000',
+// ];
 
-const corsOptions = {
-  origin: allowedCors,
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  optionsSuccessStatus: 204,
-};
+// const corsOptions = {
+//   origin: allowedCors,
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//   optionsSuccessStatus: 204,
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
+  res.setHeader('Access-Control-Allow-Methods', 'Content-Type', 'Authorization');
+  next();
+});
 
 app.use('/', require('./routes/index'));
 
