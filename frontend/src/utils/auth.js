@@ -32,7 +32,6 @@ import { URL } from './constants';
     export function authUser(data) {
         return fetch(`${URL}/signin`, {
             method: 'POST',
-            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json'
             },

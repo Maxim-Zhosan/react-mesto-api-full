@@ -39,7 +39,6 @@ app.use((req, res, next) => {
   if (method === 'OPTIONS') {
     // разрешаем кросс-доменные запросы с этими заголовками
     res.header('Access-Control-Allow-Headers', requestHeaders);
-    res.header('Access-Control-Allow-Credentials', true);
     return res.end(); // завершаем обработку запроса и возвращаем результат клиенту
   }
   next();
