@@ -23,8 +23,9 @@ const corsOptions = {
   origin: allowedCors,
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   optionsSuccessStatus: 204,
-  credentials: true,
 };
+
+app.use(cors(corsOptions));
 
 app.use('/', cors(corsOptions), require('./routes/index'));
 
