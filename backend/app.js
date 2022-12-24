@@ -24,8 +24,6 @@ app.use((req, res, next) => {
   // проверяем, что источник запроса есть среди разрешённых
   if (allowedCors.includes(origin)) {
     res.header('Access-Control-Allow-Origin', origin);
-    console.log(req);
-    console.log(req.headers);
   }
   const { method } = req; // Сохраняем тип запроса (HTTP-метод) в соответствующую переменную
 
@@ -36,6 +34,8 @@ app.use((req, res, next) => {
   if (method === 'OPTIONS') {
     // разрешаем кросс-доменные запросы любых типов (по умолчанию)
     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
+    console.log(req);
+    console.log(req.headers);
   }
   const requestHeaders = req.headers['access-control-request-headers'];
   if (method === 'OPTIONS') {
