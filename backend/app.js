@@ -8,11 +8,6 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { PORT = 3000 } = process.env;
 const app = express();
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(requestLogger); // подключаем логгер запросов
-mongoose.connect('mongodb://localhost:27017/mestodb');
-
 const allowedCors = [
   'http://mesto-mz.nomoredomains.club',
   'https://mesto-mz.nomoredomains.club',
@@ -23,15 +18,17 @@ const corsOptions = {
   origin: allowedCors,
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   optionsSuccessStatus: 204,
+  credentials: true,
 };
 
-app.use((req, res, next) => {
-  cors(corsOptions);
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
-  res.setHeader('Access-Control-Allow-Methods', 'Content-Type', 'Authorization');
-  next();
-});
+app.use(cors(corsOptions));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(requestLogger); // подключаем логгер запросов
+mongoose.connect('mongodb://localhost:27017/mestodb');
+
+
 
 app.use('/', require('./routes/index'));
 
