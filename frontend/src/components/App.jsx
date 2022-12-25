@@ -139,9 +139,8 @@ function App() {
         if (res.token) {
           localStorage.setItem('token', res.token);
           setIsLoggedIn(true);
-          console.log(isLoggedIn);
-          console.log(res.token);
         }
+      console.log(res);
       })
       .then(() => { history.push('/') })
       .catch((err) => console.log(err));
