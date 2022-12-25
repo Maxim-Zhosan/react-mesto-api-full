@@ -11,7 +11,7 @@ function Card({ name, likes, link, onCardClick, cardOwner, currentUser, onCardLi
   function handleDeleteClick() {
     onDeleteCard(card)
   }
-
+  console.log(cardOwner);
   const isOwn = cardOwner._id === currentUser;
   const cardDeleteButtonClassName = (`elements__delete-icon ${isOwn ? "elements__delete-icon_visible" : "elements__delete-icon_hidden"}`);
   const isLiked = likes.some(i => i._id === currentUser);
