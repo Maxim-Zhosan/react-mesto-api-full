@@ -187,8 +187,6 @@ function App() {
 
   React.useEffect(() => {
     if (localStorage.getItem('token')) {
-      console.log(localStorage.getItem('token'))
-      console.log(document.cookie)
       auth.checkToken(localStorage.getItem('token'))
         .then((res) => {
           if (res.data.email) {
@@ -199,6 +197,8 @@ function App() {
         .then(() => { history.push('/') })
         .catch((err) => console.log(err))
     }
+    console.log(localStorage.getItem('token'))
+    console.log(document.cookie)
   }, [isLoggedIn, history]);
 
   return (
