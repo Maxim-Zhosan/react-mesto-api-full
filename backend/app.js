@@ -35,7 +35,6 @@ app.use((req, res, next) => {
   if (method === 'OPTIONS') {
     // разрешаем кросс-доменные запросы любых типов (по умолчанию)
     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
-    console.log(req.headers);
   }
   const requestHeaders = req.headers['access-control-request-headers'];
   if (method === 'OPTIONS') {
