@@ -11,7 +11,7 @@ const pageNotFoundError = (req, res, next) => {
   next(new NotFoundError('Страница не найдена'));
 };
 
-index.post('/signup', celebrate({
+index.post('/sign-up', celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
     about: Joi.string().min(2).max(30),
@@ -21,7 +21,7 @@ index.post('/signup', celebrate({
   }).unknown(true),
 }), createUser);
 
-index.post('/signin', celebrate({
+index.post('/sign-in', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
     password: Joi.string().required(),

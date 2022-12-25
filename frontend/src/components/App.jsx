@@ -121,10 +121,10 @@ function App() {
   function handleRegister(data) {
     auth.registerNewUser(data)
       .then(res => {
-        if (res.data) {
+        if (res) {
           setIsInfoTooltipPopupOpen(true);
           setIsRegSuccess(true)
-          console.log(res.data);
+          console.log(res);
         } else { return }
       })
       .catch((err) => {
@@ -174,13 +174,13 @@ function App() {
     api.getUserInformation()
       .then(res => {
         console.log(res)
-        setCurrentUser(res.data)
+        setCurrentUser(res)
       })
       .catch((err) => console.log(err));
     api.getInitialCards()
       .then(res => {
         console.log(res)
-        loadCards(res.data.map(item => ({
+        loadCards(res.map(item => ({
           _id: item._id,
           name: item.name,
           link: item.link,
@@ -209,9 +209,9 @@ function App() {
     if (!localStorage.getItem('token')) {
       auth.checkToken(localStorage.getItem('token'))
         .then((res) => {
-          if (res.data.email) {
+          if (res.email) {
             setIsLoggedIn(true);
-            setHeaderUserEmail(res.data.email);
+            setHeaderUserEmail(res.email);
           }
         })
         .then(() => { history.push('/') })
