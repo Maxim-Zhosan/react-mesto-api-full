@@ -13,7 +13,7 @@ module.exports.createCard = (req, res, next) => {
   const owner = req.user._id;
   const { name, link } = req.body;
   Card.create({ name, link, owner })
-    .then((card) => res.status(201).send(card.populate(['owner', 'likes'])))
+    .then((card) => res.status(201).send(card))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new BadRequestError('Переданы некорректные данные при создании карточки'));
@@ -34,7 +34,7 @@ module.exports.deleteCard = (req, res, next) => {
         next(new ForbiddenError('Нельзя удалить чужую карточку'));
       } else {
         card.delete();
-        res.send({ card });
+        res.send(card);
       }
     })
     .catch((err) => {
@@ -79,7 +79,7 @@ module.exports.dislikeCard = (req, res, next) => {
       if (!card) {
         next(new NotFoundError('Карточка с указанным _id не найдена'));
       } else {
-        res.send({ card });
+        res.send(card);
       }
     })
     .catch((err) => {
