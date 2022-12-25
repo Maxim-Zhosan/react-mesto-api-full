@@ -18,7 +18,7 @@ const cardSchema = new mongoose.Schema({
   owner: {
     type: mongoose.Schema.Types.Mixed,
     required: true,
-    ref: 'user',
+    ref: 'user'.email,
   },
   likes: {
     type: mongoose.Schema.Types.Array,
