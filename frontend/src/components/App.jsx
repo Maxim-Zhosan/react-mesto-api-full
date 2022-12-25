@@ -20,7 +20,7 @@ import * as auth from '../utils/auth';
 
 function App() {
   const history = useHistory();
-  
+
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
@@ -38,17 +38,17 @@ function App() {
 
   React.useEffect(() => {
     function closeByEscape(evt) {
-      if(evt.key === 'Escape') {
+      if (evt.key === 'Escape') {
         closeAllPopups();
       }
     }
-    if(isOpen) {
+    if (isOpen) {
       document.addEventListener('keydown', closeByEscape);
       return () => {
         document.removeEventListener('keydown', closeByEscape);
       }
     }
-  }, [isOpen]) 
+  }, [isOpen])
 
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true);
@@ -136,11 +136,12 @@ function App() {
   function handleAuth(data) {
     auth.authUser(data)
       .then((res) => {
-        if (res.token) {
-          localStorage.setItem('token', res.token);
+        // if (res.token) {
+        //   localStorage.setItem('token', res.token);
+        if (res._id) {
           setIsLoggedIn(true);
         }
-      console.log(res);
+        console.log(res);
       })
       .then(() => { history.push('/') })
       .catch((err) => console.log(err));
