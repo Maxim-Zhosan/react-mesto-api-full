@@ -167,6 +167,7 @@ function App() {
   React.useEffect(() => {
     api.getUserInformation()
       .then(res => {
+        console.log(res)
         setCurrentUser(res)
       })
       .catch((err) => console.log(err));
