@@ -8,6 +8,7 @@ function Main(props) {
   const { onEditProfile, onAddPlace, onEditAvatar, onDeleteCard, onCardClick, onCardLike, setHeaderLink } = props;
   const userInfo = React.useContext(CurrentUserContext);
   const cards = React.useContext(CardsContext);
+  console.log(cards);
 
   React.useEffect(() => {
     setHeaderLink({
