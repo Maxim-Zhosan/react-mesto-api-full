@@ -61,7 +61,7 @@ app.use(errors()); // обработчик ошибок celebrate
 app.use((err, req, res, next) => errHandler(err, req, res, next));
 
 app.listen(PORT, () => {
-  console.log('Всё ок');
+  console.log('Всё окей');
 });
 
 // // app.use(cors(corsOptions));
