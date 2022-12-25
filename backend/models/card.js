@@ -18,7 +18,8 @@ const cardSchema = new mongoose.Schema({
   owner: {
     type: mongoose.Schema.Types.Mixed,
     required: true,
-    ref: 'user'.email,
+    ref: 'user',
+    toObject: { virtuals: true },
   },
   likes: {
     type: mongoose.Schema.Types.Array,
