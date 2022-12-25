@@ -15,7 +15,7 @@ function Card({ name, likes, link, onCardClick, cardOwner, currentUser, onCardLi
   console.log(currentUser);
   const isOwn = cardOwner === currentUser;
   const cardDeleteButtonClassName = (`elements__delete-icon ${isOwn ? "elements__delete-icon_visible" : "elements__delete-icon_hidden"}`);
-  const isLiked = likes.some(i => i._id === currentUser);
+  const isLiked = likes.some(i => i === currentUser);
   const cardLikeButtonClassName = (`elements__heart-icon ${isLiked && "elements__heart-icon_liked"}`); 
 
   return (
