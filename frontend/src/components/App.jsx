@@ -168,7 +168,7 @@ function App() {
     api.getUserInformation()
       .then(res => {
         console.log(res)
-        setCurrentUser(res)
+        setCurrentUser(res.data)
       })
       .catch((err) => console.log(err));
     api.getInitialCards()
