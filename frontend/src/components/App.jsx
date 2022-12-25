@@ -172,6 +172,7 @@ function App() {
       .catch((err) => console.log(err));
     api.getInitialCards()
       .then(res => {
+        console.log(res)
         loadCards(res.map(item => ({
           _id: item._id,
           name: item.name,

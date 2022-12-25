@@ -16,8 +16,6 @@ mongoose.connect('mongodb://localhost:27017/mestodb');
 const allowedCors = [
   'http://mesto-mz.nomoredomains.club',
   'https://mesto-mz.nomoredomains.club',
-  'http://api.mesto-mz.nomoredomains.club',
-  'https://api.mesto-mz.nomoredomains.club',
   'localhost:3000',
 ];
 
