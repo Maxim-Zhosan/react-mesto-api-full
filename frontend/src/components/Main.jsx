@@ -41,7 +41,7 @@ function Main(props) {
             likes={card.likes}
             key={card._id}
             onCardClick={onCardClick}
-            cardOwner={card.owner}
+            cardOwner={card.owner._id}
             currentUser={userInfo._id}
             onCardLike={onCardLike}
             card={card}
