@@ -19,7 +19,6 @@ const cardSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.Mixed,
     required: true,
     ref: 'user',
-    toObject: { virtuals: true },
   },
   likes: {
     type: mongoose.Schema.Types.Array,
