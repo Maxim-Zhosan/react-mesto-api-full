@@ -147,7 +147,6 @@ function App() {
           console.log(isLoggedIn);
           console.log(res._id);
         }
-        console.log('Нет');
       })
       .then(() => { history.push('/') })
       .catch((err) => console.log(err));
@@ -191,8 +190,22 @@ function App() {
       .catch((err) => console.log(err));
   }, []);
 
+  // React.useEffect(() => {
+  //   if (localStorage.getItem('token')) {
+  //     auth.checkToken(localStorage.getItem('token'))
+  //       .then((res) => {
+  //         if (res.data.email) {
+  //           setIsLoggedIn(true);
+  //           setHeaderUserEmail(res.data.email);
+  //         }
+  //       })
+  //       .then(() => { history.push('/') })
+  //       .catch((err) => console.log(err))
+  //   }
+  // }, [isLoggedIn, history]);
+
   React.useEffect(() => {
-    if (localStorage.getItem('token')) {
+    if (!localStorage.getItem('token')) {
       auth.checkToken(localStorage.getItem('token'))
         .then((res) => {
           if (res.data.email) {
