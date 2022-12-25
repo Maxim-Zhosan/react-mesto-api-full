@@ -174,7 +174,7 @@ function App() {
     api.getInitialCards()
       .then(res => {
         console.log(res)
-        loadCards(res.map(item => ({
+        loadCards(res.data.map(item => ({
           _id: item._id,
           name: item.name,
           link: item.link,
