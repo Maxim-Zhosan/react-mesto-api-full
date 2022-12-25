@@ -197,6 +197,7 @@ function App() {
         .then(() => { history.push('/') })
         .catch((err) => console.log(err))
     }
+    console.log('нет кук')
   }, [isLoggedIn, history]);
 
   return (
