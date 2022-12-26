@@ -11,7 +11,6 @@ import { URL } from './constants';
         return fetch(`${URL}/users/me`, {
             method: 'GET',
             credentials: 'include',
-            mode: 'no-cors',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -23,7 +22,6 @@ import { URL } from './constants';
         return fetch(`${URL}/sign-in`, {
             method: 'POST',
             credentials: 'include',
-            mode: 'no-cors',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -38,7 +36,6 @@ import { URL } from './constants';
     export function registerNewUser(data) {
         return fetch(`${URL}/sign-up`, {
             method: 'POST',
-            mode: 'cors',
             headers: {
                 'Content-Type': 'application/json'
             },
