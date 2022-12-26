@@ -156,7 +156,7 @@ function App() {
   };
 
   function handleLogout() {
-    localStorage.removeItem('token');
+    setIsLoggedIn(false);
     setHeaderUserEmail("");
     history.push('/sign-in');
   }

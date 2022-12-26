@@ -163,7 +163,7 @@ module.exports.login = (req, res, next) => {
                   secure: true,
                   sameSite: 'None',
                 })
-                .send({ _id: user._id })
+                .send({ user })
                 .end();
             }
           });
@@ -173,7 +173,6 @@ module.exports.login = (req, res, next) => {
 };
 
 module.exports.getCurrentUser = (req, res, next) => {
-  console.log(req.user);
   User.findById(req.user._id)
     .then((user) => {
       if (!user) {

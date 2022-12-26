@@ -18,16 +18,16 @@ import { URL } from './constants';
     //         .then(res => getJsonOrError(res))
     // }
 
-    export function checkToken() {
-        return fetch(`${URL}/users/me`, {
-            method: 'GET',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-            .then(res => getJsonOrError(res))
-    }
+    // export function checkToken() {
+    //     return fetch(`${URL}/users/me`, {
+    //         method: 'GET',
+    //         credentials: 'include',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //     })
+    //         .then(res => getJsonOrError(res))
+    // }
 
     export function authUser(data) {
         return fetch(`${URL}/sign-in`, {
