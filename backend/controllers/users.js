@@ -1,6 +1,8 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
+
+const { JWT_SECRET } = process.env;
 const NotFoundError = require('../errors/not-found-err');
 const BadRequestError = require('../errors/bad-request-err');
 const UnauthorizedError = require('../errors/unauthorized-err');
@@ -154,7 +156,7 @@ module.exports.login = (req, res, next) => {
               next(new UnauthorizedError('Неправильные почта или пароль'));
             } else {
               // аутентификация успешна
-              const token = jwt.sign({ _id: user._id }, 'some-secret-key', { expiresIn: '7d' });
+              const token = jwt.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
               res
                 .cookie('jwt', token, {
                   // token - наш JWT токен, который мы отправляем
