@@ -21,7 +21,7 @@ import Cookies from 'js-cookie';
 
 function App() {
   const history = useHistory();
-  
+
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
@@ -39,17 +39,17 @@ function App() {
 
   React.useEffect(() => {
     function closeByEscape(evt) {
-      if(evt.key === 'Escape') {
+      if (evt.key === 'Escape') {
         closeAllPopups();
       }
     }
-    if(isOpen) {
+    if (isOpen) {
       document.addEventListener('keydown', closeByEscape);
       return () => {
         document.removeEventListener('keydown', closeByEscape);
       }
     }
-  }, [isOpen]) 
+  }, [isOpen])
 
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true);
@@ -170,7 +170,7 @@ function App() {
     setCardPopupOpen({})
     setDeletedCard({})
     setIsRegSuccess(false)
-  }  
+  }
 
   React.useEffect(() => {
     api.getUserInformation()
@@ -178,6 +178,13 @@ function App() {
         console.log(res)
         setCurrentUser(res)
       })
+      .then((res) => {
+        if (res.email) {
+          setIsLoggedIn(true);
+          setHeaderUserEmail(res.email);
+        }
+      })
+      .then(() => { history.push('/') })
       .catch((err) => console.log(err));
     api.getInitialCards()
       .then(res => {
@@ -190,21 +197,20 @@ function App() {
           owner: item.owner
         })))
       })
-      .then(() => { history.push('/') })
       .catch((err) => console.log(err));
-  }, [history]);
+  }, [isLoggedIn, history]);
 
-//   React.useEffect(() => {
-//     auth.checkToken()
-//       .then((res) => {
-//         if (res.email) {
-//           setIsLoggedIn(true);
-//           setHeaderUserEmail(res.email);
-//         }
-//       })
-//       .then(() => { history.push('/') })
-//       .catch((err) => console.log(err))
-// }, [isLoggedIn, history]);
+  //   React.useEffect(() => {
+  //     auth.checkToken()
+  //       .then((res) => {
+  //         if (res.email) {
+  //           setIsLoggedIn(true);
+  //           setHeaderUserEmail(res.email);
+  //         }
+  //       })
+  //       .then(() => { history.push('/') })
+  //       .catch((err) => console.log(err))
+  // }, [isLoggedIn, history]);
 
   // React.useEffect(() => {
   //   if (localStorage.getItem('token')) {
@@ -220,7 +226,7 @@ function App() {
   //   }
   // }, [isLoggedIn, history]);
 
-  
+
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
