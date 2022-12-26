@@ -202,6 +202,7 @@ function App() {
           owner: item.owner
         })))
       })
+      .then(() => { history.push('/') })
       .catch((err) => console.log(err));
   }, []);
 
