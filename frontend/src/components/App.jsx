@@ -17,7 +17,6 @@ import { CardsContext } from '../contexts/CardsContext';
 import { LoggedInContext } from '../contexts/LoggedInContext';
 import api from '../utils/api';
 import * as auth from '../utils/auth';
-import Cookies from 'js-cookie';
 
 function App() {
   const history = useHistory();
@@ -194,7 +193,7 @@ function App() {
         })))
       })
       .catch((err) => console.log(err));
-  }, [history]);
+  }, [isLoggedIn, history]);
 
   //   React.useEffect(() => {
   //     auth.checkToken()
