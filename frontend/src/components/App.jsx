@@ -194,17 +194,17 @@ function App() {
       .catch((err) => console.log(err));
   } console.log (isLoggedIn)}, [isLoggedIn, history]);
 
-  //   React.useEffect(() => {
-  //     auth.checkToken()
-  //       .then((res) => {
-  //         if (res.email) {
-  //           setIsLoggedIn(true);
-  //           setHeaderUserEmail(res.email);
-  //         }
-  //       })
-  //       .then(() => { history.push('/') })
-  //       .catch((err) => console.log(err))
-  // }, [isLoggedIn, history]);
+    React.useEffect(() => {
+      auth.checkToken()
+        .then((res) => {
+          if (res.email) {
+            setIsLoggedIn(true);
+            setHeaderUserEmail(res.email);
+          }
+        })
+        .then(() => { history.push('/') })
+        .catch((err) => console.log(err))
+  }, [isLoggedIn, history]);
 
   // React.useEffect(() => {
   //   if (localStorage.getItem('token')) {
