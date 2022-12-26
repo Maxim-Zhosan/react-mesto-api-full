@@ -172,9 +172,10 @@ function App() {
   }
 
   React.useEffect(() => {
-    if (!Cookies.get('jwt')) {
-      console.log(Cookies.get('jwt'));
-      console.log(document.cookie);
+    const cookie = Cookies.get('jwt');
+    if (cookie) {
+      console.log(cookie);
+      console.log(Cookies.get());
       auth.checkToken()
         .then((res) => {
           if (res.email) {
