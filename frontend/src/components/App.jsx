@@ -177,12 +177,8 @@ function App() {
       .then(res => {
         console.log(res)
         setCurrentUser(res)
-      })
-      .then((res) => {
-        if (res.email) {
-          setIsLoggedIn(true);
-          setHeaderUserEmail(res.email);
-        }
+        setIsLoggedIn(true);
+        setHeaderUserEmail(res.email);
       })
       .then(() => { history.push('/') })
       .catch((err) => console.log(err));
