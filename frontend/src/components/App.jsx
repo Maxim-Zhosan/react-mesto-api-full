@@ -194,7 +194,7 @@ function App() {
         })))
       })
       .catch((err) => console.log(err));
-  }, [isLoggedIn, history]);
+  }, [history]);
 
   //   React.useEffect(() => {
   //     auth.checkToken()
