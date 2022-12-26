@@ -206,8 +206,7 @@ function App() {
   // }, [isLoggedIn, history]);
 
   React.useEffect(() => {
-    if (!localStorage.getItem('token')) {
-      auth.checkToken(localStorage.getItem('token'))
+      auth.checkToken()
         .then((res) => {
           if (res.email) {
             setIsLoggedIn(true);
@@ -216,10 +215,9 @@ function App() {
         })
         .then(() => { history.push('/') })
         .catch((err) => console.log(err))
-    }
-    console.log(localStorage.getItem('token'))
-    console.log(document.cookie)
   }, [isLoggedIn, history]);
+
+  
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
