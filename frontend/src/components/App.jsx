@@ -146,8 +146,9 @@ function App() {
         // }
         if (res._id) {
           setIsLoggedIn(true);
+          setHeaderUserEmail(res.email);
           console.log(isLoggedIn);
-          console.log(res._id);
+          console.log(res);
         }
       })
       .then(() => { history.push('/') })
