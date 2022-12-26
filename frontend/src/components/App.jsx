@@ -137,12 +137,6 @@ function App() {
   function handleAuth(data) {
     auth.authUser(data)
       .then((res) => {
-        // if (res.token) {
-        //   localStorage.setItem('token', res.token);
-        //   setIsLoggedIn(true);
-        //   console.log(isLoggedIn);
-        //   console.log(res.token);
-        // }
         if (res._id) {
           setIsLoggedIn(true);
           setHeaderUserEmail(res.email);
@@ -205,22 +199,6 @@ function App() {
         .then(() => { history.push('/') })
         .catch((err) => console.log(err))
   }, [history]);
-
-  // React.useEffect(() => {
-  //   if (localStorage.getItem('token')) {
-  //     auth.checkToken(localStorage.getItem('token'))
-  //       .then((res) => {
-  //         if (res.data.email) {
-  //           setIsLoggedIn(true);
-  //           setHeaderUserEmail(res.data.email);
-  //         }
-  //       })
-  //       .then(() => { history.push('/') })
-  //       .catch((err) => console.log(err))
-  //   }
-  // }, [isLoggedIn, history]);
-
-
 
   return (
     <CurrentUserContext.Provider value={currentUser}>

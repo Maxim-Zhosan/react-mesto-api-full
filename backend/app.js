@@ -17,8 +17,6 @@ const allowedCors = [
   'http://mesto-mz.nomoredomains.club',
   'https://mesto-mz.nomoredomains.club',
   'localhost:3000',
-  'http://api.mesto-mz.nomoredomains.club',
-  'https://api.mesto-mz.nomoredomains.club',
 ];
 
 app.use((req, res, next) => {
@@ -47,15 +45,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// const corsOptions = {
-//   origin: allowedCors,
-//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-//   optionsSuccessStatus: 204,
-//   credentials: true,
-// };
-
-// app.use(cors(corsOptions));
-
 app.use('/', require('./routes/index'));
 
 app.use(errorLogger); // подключаем логгер ошибок
@@ -65,17 +54,3 @@ app.use((err, req, res, next) => errHandler(err, req, res, next));
 app.listen(PORT, () => {
   console.log('Всё окей');
 });
-
-// // app.use(cors(corsOptions));
-// app.options('*', cors(corsOptions));
-
-// app.use((req, res, next) => {
-//   const { origin } = req.headers; // Сохраняем источник запроса в переменную origin
-//   // проверяем, что источник запроса есть среди разрешённых
-//   if (allowedCors.includes(origin)) {
-//     console.log(origin);
-//     console.log(req.headers);
-//     res.header('Access-Control-Allow-Origin', origin);
-//   }
-//   next();
-// });

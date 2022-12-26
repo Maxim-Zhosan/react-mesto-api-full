@@ -7,17 +7,6 @@ import { URL } from './constants';
         return Promise.reject(`Ошибка: ${res.status}`)
     }
 
-    // export function checkToken(token) {
-    //     return fetch(`${URL}/users/me`, {
-    //         method: 'GET',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'Authorization': `Bearer ${token}`
-    //         }
-    //     })
-    //         .then(res => getJsonOrError(res))
-    // }
-
     export function checkToken() {
         return fetch(`${URL}/users/me`, {
             method: 'GET',
