@@ -169,8 +169,8 @@ function App() {
     setIsRegSuccess(false)
   }
 
-  React.useEffect((isLoggedIn) => {
-    if (isLoggedIn === true) {
+  React.useEffect(() => {
+    if (isLoggedIn) {
     api.getUserInformation()
       .then(res => {
         console.log(res)
