@@ -17,6 +17,7 @@ import { CardsContext } from '../contexts/CardsContext';
 import { LoggedInContext } from '../contexts/LoggedInContext';
 import api from '../utils/api';
 import * as auth from '../utils/auth';
+import Cookie from "cookie-reader";
 
 function App() {
   const history = useHistory();
@@ -171,6 +172,21 @@ function App() {
   }
 
   React.useEffect(() => {
+    if (Cookie.getItem("jwt")) {
+      auth.checkToken()
+        .then((res) => {
+          if (res.email) {
+            setIsLoggedIn(true);
+            setHeaderUserEmail(res.email);
+          }
+        })
+        .then(() => { history.push('/') })
+        .catch((err) => console.log(err))
+    }
+    console.log(Cookie.getItem('jwt'))
+  }, [isLoggedIn, history]);
+
+  React.useEffect(() => {
     api.getUserInformation()
       .then(res => {
         console.log(res)
@@ -204,20 +220,6 @@ function App() {
   //       .catch((err) => console.log(err))
   //   }
   // }, [isLoggedIn, history]);
-
-  React.useEffect(() => {
-    if (!localStorage.getItem('token')) {
-      auth.checkToken(localStorage.getItem('token'))
-        .then((res) => {
-          if (res.email) {
-            setIsLoggedIn(true);
-            setHeaderUserEmail(res.email);
-          }
-        })
-        .then(() => { history.push('/') })
-        .catch((err) => console.log(err))
-    }
-  }, [isLoggedIn, history]);
 
   
 
