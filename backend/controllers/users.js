@@ -163,7 +163,7 @@ module.exports.login = (req, res, next) => {
                   secure: true,
                   sameSite: 'None',
                 })
-                .send({ user })
+                .send(user)
                 .end();
             }
           });
