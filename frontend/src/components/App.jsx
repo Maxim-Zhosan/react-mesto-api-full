@@ -170,19 +170,7 @@ function App() {
     setCardPopupOpen({})
     setDeletedCard({})
     setIsRegSuccess(false)
-  }
-
-  // React.useEffect(() => {
-  //     auth.checkToken()
-  //       .then((res) => {
-  //         if (res.email) {
-  //           setIsLoggedIn(true);
-  //           setHeaderUserEmail(res.email);
-  //         }
-  //       })
-  //       .then(() => { history.push('/') })
-  //       .catch((err) => console.log(err))
-  // }, [isLoggedIn, history]);
+  }  
 
   React.useEffect(() => {
     api.getUserInformation()
@@ -204,7 +192,19 @@ function App() {
       })
       .then(() => { history.push('/') })
       .catch((err) => console.log(err));
-  }, []);
+  }, [history]);
+
+//   React.useEffect(() => {
+//     auth.checkToken()
+//       .then((res) => {
+//         if (res.email) {
+//           setIsLoggedIn(true);
+//           setHeaderUserEmail(res.email);
+//         }
+//       })
+//       .then(() => { history.push('/') })
+//       .catch((err) => console.log(err))
+// }, [isLoggedIn, history]);
 
   // React.useEffect(() => {
   //   if (localStorage.getItem('token')) {
