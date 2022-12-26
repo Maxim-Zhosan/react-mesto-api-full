@@ -17,7 +17,7 @@ import { CardsContext } from '../contexts/CardsContext';
 import { LoggedInContext } from '../contexts/LoggedInContext';
 import api from '../utils/api';
 import * as auth from '../utils/auth';
-import Cookie from "cookie-reader";
+import Cookies from 'js-cookie';
 
 function App() {
   const history = useHistory();
@@ -172,9 +172,8 @@ function App() {
   }
 
   React.useEffect(() => {
-    const cookie = Cookie.parse()
-    if (cookie) {
-      console.log(cookie);
+    if (Cookies.get('jwt')) {
+      console.log(Cookies.get('jwt'));
       console.log(document.cookie);
       auth.checkToken()
         .then((res) => {
@@ -186,7 +185,6 @@ function App() {
         .then(() => { history.push('/') })
         .catch((err) => console.log(err))
     }
-    console.log(Cookie.getItem('jwt'))
   }, [isLoggedIn, history]);
 
   React.useEffect(() => {
