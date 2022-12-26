@@ -146,8 +146,6 @@ function App() {
         if (res._id) {
           setIsLoggedIn(true);
           setHeaderUserEmail(res.email);
-          console.log(isLoggedIn);
-          console.log(res);
         }
       })
       .then(() => { history.push('/') })
@@ -171,11 +169,13 @@ function App() {
     setIsRegSuccess(false)
   }
 
-  React.useEffect(() => {
+  React.useEffect((isLoggedIn) => {
+    if (isLoggedIn === true) {
     api.getUserInformation()
       .then(res => {
         console.log(res)
-        setCurrentUser(res)
+        setIsLoggedIn(true);
+        setCurrentUser(res);
         setHeaderUserEmail(res.email);
       })
       .then(() => { history.push('/') })
@@ -192,7 +192,7 @@ function App() {
         })))
       })
       .catch((err) => console.log(err));
-  }, [isLoggedIn, history]);
+  }}, [isLoggedIn, history]);
 
   //   React.useEffect(() => {
   //     auth.checkToken()
