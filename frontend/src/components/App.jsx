@@ -145,7 +145,6 @@ function App() {
         // }
         if (res._id) {
           setIsLoggedIn(true);
-          setCurrentUser(res);
           setHeaderUserEmail(res.email);
           console.log(isLoggedIn);
           console.log(res);
@@ -179,6 +178,7 @@ function App() {
         setCurrentUser(res)
         setHeaderUserEmail(res.email);
       })
+      .then(() => { history.push('/') })
       .catch((err) => console.log(err));
     api.getInitialCards()
       .then(res => {
@@ -192,7 +192,7 @@ function App() {
         })))
       })
       .catch((err) => console.log(err));
-  }, [currentUser]);
+  }, [isLoggedIn === true, history]);
 
   //   React.useEffect(() => {
   //     auth.checkToken()
