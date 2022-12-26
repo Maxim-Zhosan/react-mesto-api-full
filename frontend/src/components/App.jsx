@@ -176,7 +176,6 @@ function App() {
       .then(res => {
         console.log(res)
         setCurrentUser(res)
-        setIsLoggedIn(true);
         setHeaderUserEmail(res.email);
       })
       .then(() => { history.push('/') })
