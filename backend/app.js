@@ -17,6 +17,9 @@ const allowedCors = [
   'http://mesto-mz.nomoredomains.club',
   'https://mesto-mz.nomoredomains.club',
   'localhost:3000',
+  'http://api.mesto-mz.nomoredomains.club',
+  'https://api.mesto-mz.nomoredomains.club',
+  'localhost:3000',
 ];
 
 app.use((req, res, next) => {
