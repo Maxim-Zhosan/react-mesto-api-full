@@ -172,10 +172,6 @@ function App() {
   }
 
   React.useEffect(() => {
-    const cookie = Cookies.get('jwt');
-    if (!cookie) {
-      console.log(cookie);
-      console.log(Cookies.get());
       auth.checkToken()
         .then((res) => {
           if (res.email) {
@@ -185,7 +181,6 @@ function App() {
         })
         .then(() => { history.push('/') })
         .catch((err) => console.log(err))
-    }
   }, [isLoggedIn, history]);
 
   React.useEffect(() => {
