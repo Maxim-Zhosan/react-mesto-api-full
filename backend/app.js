@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
@@ -8,8 +9,6 @@ const { corsHandler } = require('./middlewares/cors-handler');
 const { PORT = 3000 } = process.env;
 const app = express();
 app.use((req, res, next) => corsHandler(req, res, next));
-require('dotenv').config();
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(requestLogger); // подключаем логгер запросов
