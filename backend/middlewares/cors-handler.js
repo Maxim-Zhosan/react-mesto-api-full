@@ -27,5 +27,5 @@ module.exports.corsHandler = (req, res, next) => {
     res.header('Access-Control-Allow-Headers', requestHeaders);
     return res.end(); // завершаем обработку запроса и возвращаем результат клиенту
   }
-  next();
+  return next();
 };

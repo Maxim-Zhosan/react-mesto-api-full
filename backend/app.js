@@ -21,6 +21,4 @@ app.use(errorLogger); // подключаем логгер ошибок
 app.use(errors()); // обработчик ошибок celebrate
 app.use((err, req, res, next) => errHandler(err, req, res, next));
 
-app.listen(PORT, () => {
-  console.log('Всё окей');
-});
+app.listen(PORT);

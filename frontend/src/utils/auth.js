@@ -19,7 +19,7 @@ import { URL } from './constants';
     }
 
     export function authUser(data) {
-        return fetch(`${URL}/sign-in`, {
+        return fetch(`${URL}/signin`, {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -34,7 +34,7 @@ import { URL } from './constants';
     }
 
     export function registerNewUser(data) {
-        return fetch(`${URL}/sign-up`, {
+        return fetch(`${URL}/signup`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
