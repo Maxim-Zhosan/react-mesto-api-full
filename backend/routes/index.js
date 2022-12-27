@@ -11,6 +11,12 @@ const pageNotFoundError = (req, res, next) => {
   next(new NotFoundError('Страница не найдена'));
 };
 
+index.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 index.post('/sign-up', celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
