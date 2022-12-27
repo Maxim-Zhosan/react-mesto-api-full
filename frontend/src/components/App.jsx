@@ -149,7 +149,7 @@ function App() {
   function handleLogout() {
     setIsLoggedIn(false);
     setHeaderUserEmail("");
-    history.push('/sign-in');
+    history.push('/signin');
   }
 
   function closeAllPopups() {
@@ -227,18 +227,18 @@ function App() {
                 <ImagePopup card={selectedCard} onClose={closeAllPopups} />
               </ProtectedRoute>
 
-              <Route exact path="/sign-in">
+              <Route exact path="/signin">
                 <Login setHeaderLink={handleHeaderLink} onLogin={handleAuth} />
                 <InfoTooltip isOpen={isInfoTooltipPopupOpen} onClose={closeAllPopups} isSuccess={regSuccess} />
               </Route>
 
-              <Route exact path="/sign-up">
+              <Route exact path="/signup">
                 <Register setHeaderLink={handleHeaderLink} onRegister={handleRegister} />
                 <InfoTooltip isOpen={isInfoTooltipPopupOpen} onClose={closeAllPopups} isSuccess={regSuccess} />
               </Route>
 
               <Route path="*">
-                {isLoggedIn ? <Redirect to="/" /> : <Redirect to="/sign-in" />}
+                {isLoggedIn ? <Redirect to="/" /> : <Redirect to="/signin" />}
               </Route>
 
             </Switch>
